@@ -55,7 +55,7 @@ export default function Dashboard(){
         event.preventDefault();
         const formData = new FormData(form);
         const promptData = Object.fromEntries(formData);
-        axios.post('http://localhost:4000/genemail', promptData, {
+        axios.post('https://mailflow-production.up.railway.app/genemail', promptData, {
                 headers: {
                   'x-api-key': "54321a"
                }
@@ -83,7 +83,7 @@ export default function Dashboard(){
         const authcookie = getCookieValue('Authorization');
 
         if(draftEmailBody && draftEmailTitle){
-            axios.post('http://localhost:4000/saveDraft', draft, {
+            axios.post('https://mailflow-production.up.railway.app/saveDraft', draft, {
                 headers: {
                   'x-api-key': "54321a",
                   'Authorization': decodeURIComponent(authcookie),
@@ -123,7 +123,7 @@ export default function Dashboard(){
             loggedIn && <main className="min-h-[90vh] px-16">
             <section className='paraphraserSection' id='paraphraserSection'>
                 <div className="flex items-center justify-center">
-                    <p className="text-5xl font-bold">Paraphrase your next email!</p>
+                    <p className="text-5xl font-bold">Paraphrase your next draft!</p>
                     <Lottie animationData={EmailSendAnimation} className="h-[20vh]" />
                 </div>
                 <div className="flex items-center justify-center gap-4">
